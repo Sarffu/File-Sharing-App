@@ -76,10 +76,15 @@ WSGI_APPLICATION = 'fsh.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'file_sh',
+        'USER': 'root',  
+        'PASSWORD': 'S1997', 
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
+
 
 
 # Password validation

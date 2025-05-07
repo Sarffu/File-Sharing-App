@@ -6,6 +6,10 @@ from .serializers import *
 # Create your views here.
 
 class HandleFileUpload(APIView):
+
+    def home(request):
+        return render(request,'index.html')
+
     def post(self,request):
         try:
             data= request.data
@@ -22,6 +26,9 @@ class HandleFileUpload(APIView):
                 'message' : 'Something went Wrongg...',
                 'data' : serializer.errors
             })
-
         except Exception as e:
-            print(e)
+            return Response({
+                'status': 500,
+                'message': 'Internal Server Error',
+                'error': str(e)
+            })
